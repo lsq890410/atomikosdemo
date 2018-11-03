@@ -7,14 +7,17 @@ import java.sql.Statement;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class OrderService {
-	@Autowired
+	@Autowired()
+	@Qualifier("datasource1")
 	private DataSource dataSource1;
 	@Autowired
+	@Qualifier("datasource2")
 	private DataSource dataSource2;
 	@Transactional
 	public void addOrder() throws SQLException {
