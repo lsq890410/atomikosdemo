@@ -25,8 +25,11 @@ public class OrderService {
 		Connection conn2 = dataSource2.getConnection();
 		Statement statement1 =conn1.createStatement();
 		Statement statement2 =conn2.createStatement();
-		statement1.executeQuery("insert into order(orderno)values('1')");
-		statement2.executeQuery("insert into order(orderno)values('1')");
+//		statement1.execute("insert into iorder(orderno)values('1')");
+//		statement2.execute("insert into iorder(orderno)values('1')");
+		statement1.executeUpdate("update iorder set orderno = '2'");
+		statement2.executeUpdate("update iorder set orderno = '2'");
+//		int i = 1/0;
 		conn1.close();
 		conn2.close();
 	}
